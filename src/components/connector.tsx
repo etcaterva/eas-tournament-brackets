@@ -62,7 +62,8 @@ function Connector({
   const { x, y } = currentMatchPosition;
   return (
     <>
-      {previousTopMatchPosition && (
+      {previousTopMatchPosition &&
+        bracketSnippet.previousTopMatch.state !== 'WALK_OVER' && (
         <path
           d={pathInfo(-1).join(' ')}
           id={`connector-${x}-${y}-${-1}`}
@@ -70,7 +71,8 @@ function Connector({
           stroke={topHighlighted ? connectorColorHighlight : connectorColor}
         />
       )}
-      {previousBottomMatchPosition && (
+      {previousBottomMatchPosition &&
+        bracketSnippet.previousBottomMatch.state !== 'WALK_OVER' && (
         <path
           d={pathInfo(1).join(' ')}
           id={`connector-${x}-${y}-${1}`}
